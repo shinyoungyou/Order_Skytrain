@@ -1,9 +1,6 @@
 Austyn Part
-1. get the user json files
-2. Building sign in system: use json file of user.
-3. get the product json files
-4. Rendering the product list on the screen
-5. pagination (1~10, 11~20, 21~30, …)
+1. Building sign in system: use json file of user.
+2. Rendering the product list on the screen
 
 Shotaro Part
 1. Search for products
