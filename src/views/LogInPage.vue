@@ -8,6 +8,8 @@
 </template>
 
 <script>
+import userClass from "../classes/user.js"
+
 export default {
   name: "HelloWorld",
   props: {
@@ -25,14 +27,14 @@ export default {
       fetch('./data/customers.json').then(
             (data)=>{
                 data.json().then((users)=>{
-                    users.forEach(()=>{
-                        // if(user.userName== uname && user.password==$scope.pass){
-                        //     $rootScope.logFlag = true;
-                        //     logedUser = new userClass(user.customerId,user.userName,user.first_name,user.last_name,user.email);
-                        //     $rootScope.logedUser = logedUser;
-                        //     $rootScope.shopCart = new shoppingCart(logedUser.toObject().cid);
-                        //     $location.path('/products');
-                        // }
+                    users.forEach((user)=>{
+                        if(user.userName== this.uname && user.password==this.pass){
+                            // $rootScope.logFlag = true;
+                            logedUser = new userClass(user.customerId,user.userName,user.first_name,user.last_name,user.email);
+                            $rootScope.logedUser = logedUser;
+                            $rootScope.shopCart = new shoppingCart(logedUser.toObject().cid);
+                            this.$router.push('/products');
+                        }
                     })
                 })
             }
