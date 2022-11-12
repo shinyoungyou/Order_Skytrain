@@ -1,0 +1,65 @@
+{
+  "size": [
+    { "iid": 101, "iName": "6''", "price": "7.49", "cals": "510", "img": "" },
+    { "iid": 102, "iName": "Footlong", "price": "11.99", "cals": "1030", "img": "" },
+    { "iid": 103, "iName": "Sidekick", "price": "3.99", "cals": "280", "img": "" },
+    { "iid": 104, "iName": "English Muffin", "price": "3.69", "cals": "330", "img": "" }
+  ],
+  "bread": [
+    { "iid": 201, "iName": "Classic Italian", "cals": "314", "edit": ["Regular", "Toasted", "Grilled", "Toasted and Grilled"], "img": "" },
+    { "iid": 202, "iName": "Multigrain", "cals": "", "edit": ["Regular", "Toasted", "Grilled", "Toasted and Grilled"], "img": "" },
+    { "iid": 203, "iName": "Classic Italian Herbs & Cheese", "cals": "", "edit": ["Regular", "Toasted", "Grilled", "Toasted and Grilled"], "img": "" },
+    { "iid": 204, "iName": "Cheesy Tex-Mex", "cals": "", "edit": ["Regular", "Toasted", "Grilled", "Toasted and Grilled"], "img": "" },
+    { "iid": 205, "iName": "Toasted Potato Bun", "cals": "105", "edit": ["Regular", "Toasted"], "img": "" }
+
+  ],
+  "protein": [
+    { "iid": 301, "iName": "Crispy Chicken", "cals": "115", "edit": [{ "eName": "Regular", "ePrice": "0.00" }, { "eName": "Double", "ePrice": "4.00" }],"img": "" },
+    { "iid": 302, "iName": "Deli-Style Turkey", "cals": "37", "edit": [{ "eName": "Regular", "ePrice": "0.00" }, { "eName": "Double", "ePrice": "4.00" }],"img": "" },
+    { "iid": 303, "iName": "Deli-Style Ham", "cals": "56", "edit": [{ "eName": "Regular", "ePrice": "0.00" }, { "eName": "Double", "ePrice": "3.99" }],"img": "" },
+    { "iid": 304, "iName": "Bacon", "cals": "24", "edit": [{ "eName": "Regular", "ePrice": "0.00" }, { "eName": "Double", "ePrice": "3.99" }],"img": "" }
+  ],
+  "cheese": [
+    { "iid": 401, "iName": "", "cals": "", "edit": [{ "eName": "Regular", "ePrice": "0.00" }, { "eName": "Extra Cheese", "ePrice": "1.99" }],"img": "" },
+    { "iid": 402, "iName": "", "cals": "", "edit": [{ "eName": "Regular", "ePrice": "0.00" }, { "eName": "Extra Cheese", "ePrice": "1.99" }],"img": "" },
+    { "iid": 403, "iName": "", "cals": "", "edit": [{ "eName": "Regular", "ePrice": "0.00" }, { "eName": "Extra Cheese", "ePrice": "1.99" }],"img": "" }
+  ],
+  "veggies": [
+    { "iid": 501, "iName": "", "cals": "2", "edit": ["Less", "Regular", "More"], "img": "" },
+    { "iid": 502, "iName": "", "cals": "1", "edit": ["Less", "Regular", "More"], "img": "" },
+    { "iid": 503, "iName": "", "cals": "1", "edit": ["Less", "Regular", "More"], "img": "" },
+    { "iid": 504, "iName": "", "cals": "4", "edit": ["Less", "Regular", "More"], "img": "" },
+    { "iid": 505, "iName": "", "cals": "1", "edit": ["Less", "Regular", "More"], "img": "" },
+    { "iid": 506, "iName": "", "cals": "1", "edit": ["Less", "Regular", "More"], "img": "" },
+    { "iid": 507, "iName": "", "cals": "1", "edit": ["Less", "Regular", "More"], "img": "" },
+    { "iid": 508, "iName": "", "cals": "1", "edit": ["Less", "Regular", "More"], "img": "" },
+    { "iid": 509, "iName": "", "cals": "1", "edit": ["Less", "Regular", "More"], "img": "" }
+  ],
+  "sauces": [
+    { "iid": 601, "iName": "", "cals": "", "edit": ["Less", "Regular", "More"], "img": "" },
+    { "iid": 602, "iName": "", "cals": "", "edit": ["Less", "Regular", "More"], "img": "" },
+    { "iid": 603, "iName": "", "cals": "", "edit": ["Less", "Regular", "More"], "img": "" },
+    { "iid": 604, "iName": "", "cals": "", "edit": ["Less", "Regular", "More"], "img": "" },
+    { "iid": 605, "iName": "", "cals": "", "edit": ["Less", "Regular", "More"], "img": "" },
+    { "iid": 606, "iName": "", "cals": "", "edit": ["Less", "Regular", "More"], "img": "" },
+    { "iid": 607, "iName": "", "cals": "", "edit": ["Less", "Regular", "More"], "img": "" },
+    { "iid": 608, "iName": "", "cals": "", "edit": ["Less", "Regular", "More"], "img": "" },
+    { "iid": 609, "iName": "", "cals": "", "edit": ["Less", "Regular", "More"], "img": "" },
+    { "iid": 610, "iName": "", "cals": "", "edit": ["Less", "Regular", "More"], "img": "" },
+    { "iid": 611, "iName": "", "cals": "", "edit": ["Less", "Regular", "More"], "img": "" }
+  ],
+  "seasonings": [
+    { "iid": 701, "iName": "", "cals": "0", "edit": ["Less", "Regular", "More"], "img": "" },
+    { "iid": 702, "iName": "", "cals": "0", "edit": ["Less", "Regular", "More"], "img": "" },
+    { "iid": 703, "iName": "", "cals": "23", "edit": ["Less", "Regular", "More"], "img": "" }
+  ],
+  "extras": [
+    { "iid": 801, "iName": "Bacon", "price": "1.99", "cals": "97", "img": "" },
+    { "iid": 802, "iName": "Pepperoni", "price": "2.00", "cals": "160", "img": "" },
+    { "iid": 803, "iName": "Smashed Avocado", "price": "1.99", "cals": "138", "img": "" },
+    { "iid": 804, "iName": "Rice", "price": "1.00", "cals": "204", "img": "" }
+  ],
+  "egg": [
+    { "iid": 901, "iName": "Egg", "cals": "150", "img": "" }
+  ]
+}
