@@ -1,17 +1,31 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+<div>
+  <router-link to="/">Login</router-link>
+  <router-link to="/sandwiches">Sandwiches</router-link>
+  <router-link to="/salads">Salads</router-link>
+  <router-link to="/breakfast">Breakfast</router-link>
+</div>
+  <router-view />
+  <SandwicheList />
+  <SaladList />
+  <BreakfastList />
+  <LogIn />
 </template>
-
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import SandwicheList from "./views/SandwichPage.vue"
+import SaladList from "./views/SaladPage.vue"
+import BreakfastList from './views/BreakfastPage.vue'
+import LogIn from "./views/LogInPage.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    SandwicheList,
+    SaladList,
+    BreakfastList,
+    LogIn
+  },
+};
 </script>
 
 <style>
@@ -22,5 +36,12 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+</style>
+
+<style scoped>
+div{
+  display: flex;
+  justify-content: space-evenly;
 }
 </style>
