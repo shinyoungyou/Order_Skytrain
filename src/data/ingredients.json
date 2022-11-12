@@ -22,7 +22,7 @@
   "cheese": [
     { "iid": 401, "iName": "", "cals": "", "edit": [{ "eName": "Regular", "ePrice": "0.00" }, { "eName": "Extra Cheese", "ePrice": "1.99" }],"img": "" },
     { "iid": 402, "iName": "", "cals": "", "edit": [{ "eName": "Regular", "ePrice": "0.00" }, { "eName": "Extra Cheese", "ePrice": "1.99" }],"img": "" },
-    { "iid": 403, "iName": "", "cals": "", "edit": [{ "eName": "Regular", "ePrice": "0.00" }, { "eName": "Extra Cheese", "ePrice": "1.99" }],"img": "" }
+    { "iid": 403, "iName": "", "cals": "", "edit": [{ "eName": "Regular", "ePrice": "0.00" }, { "eName": "Extra Cheese", "ePrice": "1.99" }],"img": "https://www.subway.com/ns/images/Menu/CAN/ENG/193_NaturalCheddar_6in_Desktop.png" }
   ],
   "veggies": [
     { "iid": 501, "iName": "", "cals": "2", "edit": ["Less", "Regular", "More"], "img": "" },
@@ -36,17 +36,17 @@
     { "iid": 509, "iName": "", "cals": "1", "edit": ["Less", "Regular", "More"], "img": "" }
   ],
   "sauces": [
-    { "iid": 601, "iName": "", "cals": "", "edit": ["Less", "Regular", "More"], "img": "" },
-    { "iid": 602, "iName": "", "cals": "", "edit": ["Less", "Regular", "More"], "img": "" },
-    { "iid": 603, "iName": "", "cals": "", "edit": ["Less", "Regular", "More"], "img": "" },
-    { "iid": 604, "iName": "", "cals": "", "edit": ["Less", "Regular", "More"], "img": "" },
-    { "iid": 605, "iName": "", "cals": "", "edit": ["Less", "Regular", "More"], "img": "" },
-    { "iid": 606, "iName": "", "cals": "", "edit": ["Less", "Regular", "More"], "img": "" },
-    { "iid": 607, "iName": "", "cals": "", "edit": ["Less", "Regular", "More"], "img": "" },
-    { "iid": 608, "iName": "", "cals": "", "edit": ["Less", "Regular", "More"], "img": "" },
-    { "iid": 609, "iName": "", "cals": "", "edit": ["Less", "Regular", "More"], "img": "" },
-    { "iid": 610, "iName": "", "cals": "", "edit": ["Less", "Regular", "More"], "img": "" },
-    { "iid": 611, "iName": "", "cals": "", "edit": ["Less", "Regular", "More"], "img": "" }
+    { "iid": 601, "iName": "Smoky Honey Mustard", "cals": "147", "edit": ["Less", "Regular", "More"], "img": "https://www.subway.com/ns/images/Menu/CAN/ENG/1837_SmokeyHoneyMustard_6in_Desktop.png" },
+    { "iid": 602, "iName": "Mayonnaise", "cals": "193", "edit": ["Less", "Regular", "More"], "img": "https://www.subway.com/ns/images/Menu/CAN/ENG/378_Mayonnaise_6in_Desktop.png" },
+    { "iid": 603, "iName": "Mustard", "cals": "18", "edit": ["Less", "Regular", "More"], "img": "https://www.subway.com/ns/images/Menu/CAN/ENG/33_Mustard_6in_Desktop.png" },
+    { "iid": 604, "iName": "Sweet & Smoky BBQ Sauce", "cals": "74", "edit": ["Less", "Regular", "More"], "img": "https://www.subway.com/ns/images/Menu/CAN/ENG/J_SmokyBBQ_Sauces_Desktop.png" },
+    { "iid": 605, "iName": "Chipotle Southwest", "cals": "128", "edit": ["Less", "Regular", "More"], "img": "https://www.subway.com/ns/images/Menu/CAN/ENG/1647_Chipotle_6in_Desktop.png" },
+    { "iid": 606, "iName": "Sweet Onion/Sweet Onion Teriyaki", "cals": "67", "edit": ["Less", "Regular", "More"], "img": "https://www.subway.com/ns/images/Menu/CAN/ENG/1838_SweetOnion_6in_Desktop.png" },
+    { "iid": 607, "iName": "Marinara Sauce", "cals": "20", "edit": ["Less", "Regular", "More"], "img": "https://www.subway.com/ns/images/Menu/CAN/ENG/213_Marinara_6in_Desktop.png" },
+    { "iid": 608, "iName": "Garlic Aioli", "cals": "142", "edit": ["Less", "Regular", "More"], "img": "https://www.subway.com/ns/images/Menu/CAN/ENG/1671_GarlicAioli_6in_Desktop.png" },
+    { "iid": 609, "iName": "House Sauce", "cals": "147", "edit": ["Less", "Regular", "More"], "img": "https://www.subway.com/ns/images/Menu/CAN/ENG/114_HouseSauce_6in_Desktop.png" },
+    { "iid": 610, "iName": "Peppercorn Ranch", "cals": "151", "edit": ["Less", "Regular", "More"], "img": "https://www.subway.com/ns/images/Menu/CAN/ENG/J_PeppercornRanch_Sauces_Desktop.png" },
+    { "iid": 611, "iName": "Green Goddess Dressing", "cals": "98", "edit": ["Less", "Regular", "More"], "img": "<https://www.subway.com/ns/images/Menu/CAN/ENG/CNGreenGoddessDressing14g_Ing_TO_Desktop.png" }
   ],
   "seasonings": [
     { "iid": 701, "iName": "", "cals": "0", "edit": ["Less", "Regular", "More"], "img": "" },
