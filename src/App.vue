@@ -1,29 +1,20 @@
 <template>
-<div>
-  <router-link to="/">Login</router-link>
-  <router-link to="/sandwiches">Sandwiches</router-link>
-  <router-link to="/salads">Salads</router-link>
-  <router-link to="/breakfast">Breakfast</router-link>
-</div>
+  <div>
+    <nav-bar></nav-bar>
+  </div>
   <router-view />
-  <SandwicheList />
-  <SaladList />
-  <BreakfastList />
-  <LogIn />
 </template>
 <script>
-import SandwicheList from "./views/SandwichPage.vue"
-import SaladList from "./views/SaladPage.vue"
-import BreakfastList from './views/BreakfastPage.vue'
-import LogIn from "./views/LogInPage.vue";
-
+import NavBar from "./components/NavBar.vue"
 export default {
   name: "App",
   components: {
-    SandwicheList,
-    SaladList,
-    BreakfastList,
-    LogIn
+    NavBar
+  },
+  data() {
+    return {
+      logFlag: false,
+    };
   },
 };
 </script>
@@ -35,13 +26,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
-
-<style scoped>
-div{
-  display: flex;
-  justify-content: space-evenly;
 }
 </style>
