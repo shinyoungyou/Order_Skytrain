@@ -9,7 +9,7 @@
 
 <script>
 import readJson from "../services/JsonService";
-import userClass from "../classes/user"
+import userClass from "../classes/userClass"
 import cookieClass from "../classes/cookieClass"
 
 export default {
