@@ -12,163 +12,36 @@
         <img class="prodImage" :src="product.detailImg" :alt="product.pName" />
       </div>
     </div>
-    <div class="row">
+    <div class="row" v-for="(value, ingredientName, idx) in ingredients" :key="idx">
       <div class="col-sm-12 col-md-6 col-lg-6 pdpLeftPart">
-        <h2 style="text-align: left; font-weight: bold">Size*</h2>
+        <h2 style="text-align: left; font-weight: bold">{{ingredientName}}</h2>
         <div class="row g-3">
-          <div class="col-sm-12 col-md-6 col-lg-4" v-for="size in ingredients.size" :key="size.iid">
-            <div class="card shadow-sm" style="width: 100%; height: 100%">
-              <img :src="size.img" :alt="size.iName" class="card-img-top" />
+          <div class="col-sm-12 col-md-6 col-lg-4" v-for="item in value" :key="item.iid">
+            <!-- item card -->
+            <div class="card shadow-sm" @click="showEditBtn($event, item)" v-show="!editFlag || !(selected.iid==item.iid)" style="width: 100%; height: 100%">
+              <img :src="item.img" :alt="item.iName" class="card-img-top" />
               <div class="card-body">
-                <h5 class="card-title">{{size.iName}}</h5>
+                <h5 class="card-title">{{item.iName}}</h5>
                 <p class="card-text">
-                  ${{ size.price }}<span>•</span>{{ size.cals }}Cals
+                  <span v-show="item.price">${{ item.price }} · </span>{{ item.cals }}Cals
                 </p>
+                <button v-show="selected.iid==item.iid" @click="editItem(item)" class="btn btn-outline-success">Edit</button>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-     <div class="row">
-      <div class="col-sm-12 col-md-6 col-lg-6 pdpLeftPart">
-        <h2 style="text-align: left; font-weight: bold">Bread*</h2>
-        <div class="row g-3">
-          <div class="col-sm-12 col-md-6 col-lg-4" v-for="bread in ingredients.bread" :key="bread.iid">
-            <div class="card shadow-sm" style="width: 100%; height: 100%">
-              <img :src="bread.img" :alt="bread.iName" class="card-img-top" />
-              <div class="card-body">
-                <h5 class="card-title">{{bread.iName}}</h5>
-                <p class="card-text">
-                  {{ bread.cals }}Cals
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-     <div class="row">
-      <div class="col-sm-12 col-md-6 col-lg-6 pdpLeftPart">
-        <h2 style="text-align: left; font-weight: bold">Protein*</h2>
-        <div class="row g-3">
-          <div class="col-sm-12 col-md-6 col-lg-4" v-for="protein in ingredients.protein" :key="protein.iid">
-            <div class="card shadow-sm" style="width: 100%; height: 100%">
-              <img :src="protein.img" :alt="protein.iName" class="card-img-top" />
-              <div class="card-body">
-                <h5 class="card-title">{{protein.iName}}</h5>
-                <p class="card-text">
-                  {{ protein.cals }}Cals
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-     <div class="row">
-      <div class="col-sm-12 col-md-6 col-lg-6 pdpLeftPart">
-        <h2 style="text-align: left; font-weight: bold">Cheese</h2>
-        <div class="row g-3">
-          <div class="col-sm-12 col-md-6 col-lg-4" v-for="cheese in ingredients.cheese" :key="cheese.iid">
-            <div class="card shadow-sm" style="width: 100%; height: 100%">
-              <img :src="cheese.img" :alt="cheese.iName" class="card-img-top" />
-              <div class="card-body">
-                <h5 class="card-title">{{cheese.iName}}</h5>
-                <p class="card-text">
-                  {{ cheese.cals }}Cals
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-12 col-md-6 col-lg-6 pdpLeftPart">
-        <h2 style="text-align: left; font-weight: bold">Veggies</h2>
-        <div class="row g-3">
-          <div class="col-sm-12 col-md-6 col-lg-4" v-for="veggies in ingredients.veggies" :key="veggies.iid">
-            <div class="card shadow-sm" style="width: 100%; height: 100%">
-              <img :src="veggies.img" :alt="veggies.iName" class="card-img-top" />
-              <div class="card-body">
-                <h5 class="card-title">{{veggies.iName}}</h5>
-                <p class="card-text">
-                  {{ veggies.cals }}Cals
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-      <div class="row">
-      <div class="col-sm-12 col-md-6 col-lg-6 pdpLeftPart">
-        <h2 style="text-align: left; font-weight: bold">Sauces</h2>
-        <div class="row g-3">
-          <div class="col-sm-12 col-md-6 col-lg-4" v-for="sauces in ingredients.sauces" :key="sauces.iid">
-            <div class="card shadow-sm" style="width: 100%; height: 100%">
-              <img :src="sauces.img" :alt="sauces.iName" class="card-img-top" />
-              <div class="card-body">
-                <h5 class="card-title">{{sauces.iName}}</h5>
-                <p class="card-text">
-                  {{ sauces.cals }}Cals
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-      <div class="row">
-      <div class="col-sm-12 col-md-6 col-lg-6 pdpLeftPart">
-        <h2 style="text-align: left; font-weight: bold">Seasonings</h2>
-        <div class="row g-3">
-          <div class="col-sm-12 col-md-6 col-lg-4" v-for="seasonings in ingredients.seasonings" :key="seasonings.iid">
-            <div class="card shadow-sm" style="width: 100%; height: 100%">
-              <img :src="seasonings.img" :alt="seasonings.iName" class="card-img-top" />
-              <div class="card-body">
-                <h5 class="card-title">{{seasonings.iName}}</h5>
-                <p class="card-text">
-                  {{ seasonings.cals }}Cals
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-     <div class="row">
-      <div class="col-sm-12 col-md-6 col-lg-6 pdpLeftPart">
-        <h2 style="text-align: left; font-weight: bold">Extras</h2>
-        <div class="row g-3">
-          <div class="col-sm-12 col-md-6 col-lg-4" v-for="extras in ingredients.extras" :key="extras.iid">
-            <div class="card shadow-sm" style="width: 100%; height: 100%">
-              <img :src="extras.img" :alt="extras.iName" class="card-img-top" />
-              <div class="card-body">
-                <h5 class="card-title">{{extras.iName}}</h5>
-                <p class="card-text">
-                  ${{ extras.price }}<span>•</span>{{ extras.cals }}Cals
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-     <div class="row">
-      <div class="col-sm-12 col-md-6 col-lg-6 pdpLeftPart">
-        <h2 style="text-align: left; font-weight: bold">Egg</h2>
-        <div class="row g-3">
-          <div class="col-sm-12 col-md-6 col-lg-4" v-for="egg in ingredients.egg" :key="egg.iid">
-            <div class="card shadow-sm" style="width: 100%; height: 100%">
-              <img :src="egg.img" :alt="egg.iName" class="card-img-top" />
-              <div class="card-body">
-                <h5 class="card-title">{{egg.iName}}</h5>
-                <p class="card-text">
-                  {{ egg.cals }}Cals
-                </p>
-              </div>
+            <!-- edit item card -->
+            <div class="card shadow-sm" style="width: 100%; height: 100%" v-show="selected.iid==item.iid&& editFlag">
+              <nav v-show="!item.editPrice">
+                <ul>
+                  <li v-for="(option, idx) in item.edit" :key="idx">{{option}}</li>
+                </ul>
+                <button @click="doneEdit(item)" class="btn btn-outline-success">Done</button>
+              </nav>  
+              <nav v-show="item.editPrice">
+                <ul>
+                  <li v-for="(option, idx) in item.editPrice" :key="idx">{{option.eName}} +${{option.ePrice}}</li>
+                </ul>
+                <button @click="doneEdit(item)" class="btn btn-outline-success">Done</button>
+              </nav>
             </div>
           </div>
         </div>
@@ -178,6 +51,8 @@
 </template>
 <script>
 import readJson from "../services/JsonService";
+// import jQuery from "jquery";
+// const $ = jQuery;
 
 export default {
   name: "ShowDetails",
@@ -187,18 +62,29 @@ export default {
       product: {},
       id: 0,
       ingredients: [],
+      editFlag: false,
+      selected: '',
     };
   },
   methods: {
-    findId() {
-      this.products.find((product) => product.pid == parseInt(this.id));
-    },
     loadIngredients() {
       readJson.getIngredientsJson().then((res) => {
         this.ingredients = res.data;
         console.log(this.ingredients);
       });
     },
+    showEditBtn(event, item){
+      event.currentTarget.style = "border: 3px solid #00491e; height: 100%"
+      if (item.edit || item.editPrice){
+        this.selected = item
+      }
+    },
+    editItem(){
+      this.editFlag = true
+    },
+    doneEdit(){
+      this.editFlag = false
+    }
   },
   mounted() {
     this.id = this.$route.params.id;
@@ -258,5 +144,9 @@ export default {
   padding-top: 60px;
   position: fixed;
   right: 0;
+}
+
+.card.shadow-sm {
+  transition: 0.4s;
 }
 </style>
