@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar navbar-expand-sm navbar-light" style="background-color: #fff; border-bottom: 1px solid #ececec">
     <div class="container">
-      <a class="navbar-brand" href="#" style="font-weight: bold"><span style="color: #f2b840">Order</span><span style="color: #3d8a39">SkyTrain</span></a>
+      <router-link class="navbar-brand" to="/menu" style="font-weight: bold"><span style="color: #f2b840">Order</span><span style="color: #3d8a39">SkyTrain</span></router-link>
     <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
         aria-expanded="false" aria-label="Toggle navigation"></button>
     <div class="collapse navbar-collapse" id="collapsibleNavId">
