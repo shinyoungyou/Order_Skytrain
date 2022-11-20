@@ -1,8 +1,8 @@
 <template>
-  <div>
-    <button v-if="nowPage > 1" @click="()=>onPageChange(nowPage - 1)">&lt;</button>
-    <button v-for="(page, index) in pageList" :key="index" @click="()=>onPageChange(page)">{{page}}</button>
-    <button v-if="nowPage < lastPage()" @click="()=>onPageChange(nowPage + 1)">&gt;</button>
+  <div id="pagenation">
+    <button class="btn" v-if="nowPage > 1" @click="()=>onPageChange(nowPage - 1)">&lt;</button>
+    <button class="btn" v-for="(page, index) in pageList" :key="index" @click="()=>onPageChange(page)">{{page}}</button>
+    <button class="btn" v-if="nowPage < lastPage()" @click="()=>onPageChange(nowPage + 1)">&gt;</button>
   </div>
 </template>
 <script>
@@ -18,11 +18,13 @@ export default {
     // total = 1 10 11 20 21 100 101
     // lastPage = 1 1 2 2 3 10 11
     lastPage(){
-      return Math.ceil(this.total / 10);
+      console.log(this.total);
+      return Math.ceil(this.total / 12);
     },
     // nowPage = 1 10 11 20 21 100 101
     // startPage = 1 1 11 11 21 91 101
     startPage(){
+      console.log(this.nowPage);
       return Math.ceil(this.nowPage / 10) * 10 - 9;
     },
     // nowPage = 1 10 11 20 21 100 101
@@ -34,22 +36,36 @@ export default {
       this.$emit('onPageChange', page)
     }
   },
-  mounted(){
-    this.lastPage();
-    this.startPage();
-    this.endPage();
-    console.log(this.nowPage);
-    console.log(this.total);
-    console.log(this.startPage());
-    console.log(this.lastPage());
-    console.log(this.endPage());
-    for (let i = this.startPage(); i <= this.endPage(); i++) {
-      this.pageList.push(i);
+  watch: {
+    total: function(){
+      this.lastPage();
+      this.startPage();
+      this.endPage();
+      for (let i = this.startPage(); i <= this.endPage(); i++) {
+        this.pageList.push(i);
+      }
     }
-    console.log(this.pageList);
   }
 }
 </script>
 <style scoped>
+  #pagination {
+    display: inline-block;
+  }
+  .btn{
+    color: black;
+    background-color: transparent;
+    border: none;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+  }
+  .btn.active {
+    border-radius: 5px;
+    /* background-color: #4CAF50; */
+    border: 1.5px solid #4CAF50;
+  }
+  
+  
 
 </style>

@@ -1,30 +1,70 @@
 <template>
-  <h1>404 Not Found</h1>
+  <section>
+    <div>
+      <h1>404</h1>
+      <h2>WE ARE SORRY, PAGE NOT FOUND!</h2>
+      <p>
+        The page you are looking for is temporarily unavailable. <br>Click the button below to go back to the homepage.
+      </p>
+      <button class="btn" @click="goBack">
+        BACK TO HOMEPAGE
+      </button>
+    </div>
+  </section>
 </template>
 
 <script>
-
+export default {
+  methods: {
+    goBack() {
+      return this.$router.push('/menu');
+    }
+  }
+}
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-article {
-  display: flex;
-  flex-wrap: wrap;
+  div{
+    padding: 10rem;
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+    align-items: center;
+  }
 
-}
+  img {
+    width: 600px;
+  }
+
+  h1 {
+    font-size: 7.5em;
+    margin: 15px 0px;
+    font-weight:bold;
+  }
+  
+  h2 {
+    font-weight:bold;
+  }
+  
+  .btn {
+    width: fit-content;
+    background: transparent;
+    padding: 8px 50px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 1em;
+    letter-spacing: 2px;
+    transition: 0.2s ease;
+    font-weight: bold;
+    margin: 5px 0px;
+    border: 4px solid green;
+  }
+
+  .btn:hover {
+    color: white;
+    background: green;
+    transition: 0.2s ease;
+  }
+
+
 </style>
