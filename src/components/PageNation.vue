@@ -18,13 +18,11 @@ export default {
     // total = 1 10 11 20 21 100 101
     // lastPage = 1 1 2 2 3 10 11
     lastPage(){
-      console.log(this.total);
       return Math.ceil(this.total / 12);
     },
     // nowPage = 1 10 11 20 21 100 101
     // startPage = 1 1 11 11 21 91 101
     startPage(){
-      console.log(this.nowPage);
       return Math.ceil(this.nowPage / 10) * 10 - 9;
     },
     // nowPage = 1 10 11 20 21 100 101
