@@ -1,8 +1,8 @@
 <template>
   <div>
-    <nav-bar :logFlag="logFlag"></nav-bar>
+    <nav-bar :logFlag="logFlag" @SearcedItems="SearcedItems"></nav-bar>
   </div>
-  <router-view @handleLogFlag="handleLogFlag" />
+  <router-view @handleLogFlag="handleLogFlag"  :searcedItems="searcedItems"/>
 </template>
 <script>
 import NavBar from "./components/NavBar.vue";
@@ -15,12 +15,16 @@ export default {
   data() {
     return {
       logFlag: false,
+      searcedItems:"",
     };
   },
   methods: {
     handleLogFlag(logFlag) {
       this.logFlag = logFlag;
     },
+    SearcedItems(val){
+      this.searcedItems = val; 
+    }
   },
    mounted() {
     let loggedUser = JSON.parse(sessionStorage.getItem("loggedUser"));

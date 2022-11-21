@@ -7,6 +7,7 @@ import SandwichPage from '../components/SandwichPage.vue'
 import SaladPage from '../components/SaladPage.vue'
 import BreakfastPage from '../components/BreakfastPage.vue'
 import ShowDetails from '../components/ShowDetails.vue'
+import SearchItem from '../components/SearchItem.vue'
 import NotFound from "../components/NotFound.vue"
 
 const routes = [
@@ -40,6 +41,12 @@ const routes = [
     path: '/breakfast',
     name: 'breakfast-page',
     component: BreakfastPage,
+    props: true
+  },{
+    // search item
+    path: '/Searchitem',
+    name: 'search-item',
+    component: SearchItem,
     props: true
   },{
     // show details of product
