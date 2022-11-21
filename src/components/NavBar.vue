@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-expand-sm navbar-light" style="background-color: #fff; border-bottom: 1px solid #ececec">
+  <nav v-show="logFlag && loginFlag" class="navbar navbar-expand-sm navbar-light" style="background-color: #fff; border-bottom: 1px solid #ececec">
     <div class="container">
       <router-link class="navbar-brand" to="/menu" style="font-weight: bold"><span style="color: #f2b840">Order</span><span style="color: #3d8a39">SkyTrain</span></router-link>
     <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
@@ -25,8 +25,8 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account</a>
           <div class="dropdown-menu" aria-labelledby="dropdownId">
-            <router-link class="nav-link dropdown-item" to="/Login">Login</router-link>
-            <router-link class="nav-link dropdown-item" to="/Logout">Logout</router-link>
+            <!-- <router-link class="nav-link dropdown-item" v-show="!logFlag" to="/Login">Login</router-link> -->
+            <router-link @click="logout(logFlag)" class="nav-link dropdown-item" to="/Logout">Logout</router-link>
           </div>
         </li>
         <li class="nav-item">
@@ -41,11 +41,18 @@
 <script>
 export default {
   name: "NavBar",
+  props: ['logFlag'],
   data() {
     return {
-      logFlag: false,
+      loginFlag: true
     };
   },
+  methods: {
+    logout(logFlag){
+      logFlag = false
+      this.loginFlag = logFlag
+    }
+  }
 };
 </script>
 
