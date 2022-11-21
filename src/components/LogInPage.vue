@@ -56,7 +56,7 @@ export default {
               }
               alert(`Welcome, ${loggedUser.toObject().fullname}`)
 
-              this.$router.push("/");
+              this.$router.push("/menu");
               // this.loginFlag = true;
             }
           })
@@ -75,7 +75,7 @@ export default {
   mounted() {
     let loggedUser = JSON.parse(sessionStorage.getItem("loggedUser"));
     if (loggedUser){
-      this.$router.push("/");
+      this.$router.push("/menu");
       this.logFlag = true
       this.$emit("handleLogFlag", this.logFlag)
       console.log(this.logFlag);

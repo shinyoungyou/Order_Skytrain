@@ -11,7 +11,8 @@ import NotFound from "../components/NotFound.vue"
 
 const routes = [
   {
-    path: '/login',
+    path: '/',
+    alias: '/login',
     name: 'login-page',
     component: LoginPage,
     props: true
@@ -21,8 +22,7 @@ const routes = [
     component: LogoutPage,
     props: true
   },{
-    path: '/',
-    alias: '/menu',
+    path: '/menu',
     name: 'menu-page',
     component: MenuPage,
     props: true

@@ -46,7 +46,7 @@
     { "iid": 608, "iName": "Garlic Aioli", "cals": "142", "edit": ["Less", "Regular", "More"], "img": "https://www.subway.com/ns/images/Menu/CAN/ENG/1671_GarlicAioli_6in_Desktop.png" },
     { "iid": 609, "iName": "House Sauce", "cals": "147", "edit": ["Less", "Regular", "More"], "img": "https://www.subway.com/ns/images/Menu/CAN/ENG/114_HouseSauce_6in_Desktop.png" },
     { "iid": 610, "iName": "Peppercorn Ranch", "cals": "151", "edit": ["Less", "Regular", "More"], "img": "https://www.subway.com/ns/images/Menu/CAN/ENG/J_PeppercornRanch_Sauces_Desktop.png" },
-    { "iid": 611, "iName": "Green Goddess Dressing", "cals": "98", "edit": ["Less", "Regular", "More"], "img": "<https://www.subway.com/ns/images/Menu/CAN/ENG/CNGreenGoddessDressing14g_Ing_TO_Desktop.png" }
+    { "iid": 611, "iName": "Green Goddess Dressing", "cals": "98", "edit": ["Less", "Regular", "More"], "img": "https://www.subway.com/ns/images/Menu/CAN/ENG/CNGreenGoddessDressing14g_Ing_TO_Desktop.png" }
   ],
   "seasonings": [
     { "iid": 701, "iName": "Pepper", "cals": "0", "edit": ["Less", "Regular", "More"], "img": "https://www.subway.com/ns/images/Menu/CAN/ENG/1423_Pepper_6in_Desktop.png" },
