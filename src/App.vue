@@ -1,20 +1,35 @@
 <template>
   <div>
-    <nav-bar></nav-bar>
+    <nav-bar :logFlag="logFlag"></nav-bar>
   </div>
-  <router-view />
+  <router-view @handleLogFlag="handleLogFlag" />
 </template>
 <script>
-import NavBar from "./components/NavBar.vue"
+import NavBar from "./components/NavBar.vue";
+
 export default {
   name: "App",
   components: {
-    NavBar
+    NavBar,
   },
   data() {
     return {
       logFlag: false,
     };
+  },
+  methods: {
+    handleLogFlag(logFlag) {
+      this.logFlag = logFlag;
+    },
+  },
+   mounted() {
+    let loggedUser = JSON.parse(sessionStorage.getItem("loggedUser"));
+    if (loggedUser){
+      this.logFlag = true
+      this.$emit("handleLogFlag", this.logFlag)
+      console.log(this.logFlag);
+
+    }
   },
 };
 </script>
