@@ -25,12 +25,13 @@
                 </tr>
             </thead>
             <tbody>
-
+                
             </tbody>
         </table>
     </section>
 </template>
 <script>
+import ProductClass from "../classes/productClass.js"
 export default {
     name: "ShoppingCart",
     props: [
@@ -38,12 +39,12 @@ export default {
     ],
     data(){
         return {
-            products: new Array()
+            products: null
         }
     },
     methods: {
-        addNew(){
-            this.products.push(this.selectItems);
+        addCart(){
+            this.products = new ProductClass(this.selectItems.iid, this.selectItems.iName, this.selectItems.cals, this.selectItems.price);
         }
     }
 }
