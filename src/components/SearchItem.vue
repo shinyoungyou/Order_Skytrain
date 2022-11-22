@@ -2,7 +2,9 @@
   <div class="container">
     <!-- <h2>Item : {{ searcedItems }}</h2> -->
     <!-- Sand -->
-    <h2 style="margin: 6rem 6rem 3rem 0rem; text-align: left">Sandwiches</h2>
+    <h2 style="margin: 6rem 6rem 3rem 0rem; text-align: left" v-if="sandshow">
+      Sandwiches
+    </h2>
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3">
       <div class="col" v-for="sandwich in searchSand" :key="sandwich.pid">
         <div class="card shadow-sm" style="width: 100%; height: 100%">
@@ -25,7 +27,12 @@
       </div>
     </div>
     <!-- Salada -->
-    <h2 style="margin: 6rem 6rem 3rem 0rem; text-align: left">Salads</h2>
+    <h2
+      style="margin: 6rem 6rem 3rem 0rem; text-align: left"
+      v-if="saladshow"
+    >
+      Salads
+    </h2>
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3">
       <div class="col" v-for="salad in searchSalads" :key="salad.pid">
         <div class="card shadow-sm" style="width: 100%; height: 100%">
@@ -45,7 +52,12 @@
     </div>
 
     <!-- Breakfast -->
-    <h2 style="margin: 6rem 6rem 3rem 0rem; text-align: left">Breakfast</h2>
+    <h2
+      style="margin: 6rem 6rem 3rem 0rem; text-align: left"
+      v-if="breakshow"
+    >
+      Breakfast
+    </h2>
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3">
       <div
         class="col"
@@ -82,6 +94,9 @@ export default {
       searchSand: [],
       searchSalads: [],
       searchBreakfasts: [],
+      sandshow: false,
+      saladshow: false,
+      breakshow: false,
     };
   },
   props: ["searcedItems"],
@@ -90,22 +105,31 @@ export default {
       readJson.getProductsJson().then((res) => {
         this.searchSand = [];
         this.searchSalads = [];
-        this.searchBreakfasts =[];
+        this.searchBreakfasts = [];
+        this.sandshow = false;
+        this.saladshow = false;
+        this.breakshow = false;
         for (let i = 0; i < res.data.sandwiches.length; i++) {
           if (
             res.data.sandwiches[i].pName
               .toLowerCase()
-              .includes(this.searcedItems.toLowerCase())
+              .includes(this.searcedItems.toLowerCase()) &&
+            this.searcedItems !== "" &&
+            this.searcedItems !== " "
           ) {
             this.searchSand.push(res.data.sandwiches[i]);
+            this.sandshow = true;
           }
         }
         for (let i = 0; i < res.data.salads.length; i++) {
           if (
             res.data.salads[i].pName
               .toLowerCase()
-              .includes(this.searcedItems.toLowerCase())
+              .includes(this.searcedItems.toLowerCase()) &&
+            this.searcedItems !== "" &&
+            this.searcedItems !== " "
           ) {
+            this.saladshow = true;
             this.searchSalads.push(res.data.salads[i]);
           }
         }
@@ -113,9 +137,12 @@ export default {
           if (
             res.data.breakfasts[i].pName
               .toLowerCase()
-              .includes(this.searcedItems.toLowerCase())
+              .includes(this.searcedItems.toLowerCase()) &&
+            this.searcedItems !== "" &&
+            this.searcedItems !== " "
           ) {
             this.searchBreakfasts.push(res.data.breakfasts[i]);
+            this.breakshow = true;
           }
         }
       });
