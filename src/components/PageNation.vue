@@ -1,8 +1,8 @@
 <template>
-  <div>
-    <button v-if="nowPage > 1" @click="()=>onPageChange(nowPage - 1)">&lt;</button>
-    <button v-for="(page, index) in pageList" :key="index" @click="()=>onPageChange(page)">{{page}}</button>
-    <button v-if="nowPage < lastPage()" @click="()=>onPageChange(nowPage + 1)">&gt;</button>
+  <div id="pagenation">
+    <button class="btn" v-if="nowPage > 1" @click="()=>onPageChange(nowPage - 1)">&lt;</button>
+    <button class="btn" v-for="(page, index) in pageList" :key="index" @click="()=>onPageChange(page)">{{page}}</button>
+    <button class="btn" v-if="nowPage < lastPage()" @click="()=>onPageChange(nowPage + 1)">&gt;</button>
   </div>
 </template>
 <script>
@@ -11,7 +11,8 @@ export default {
   props: ['nowPage', 'total'],
   data(){
     return {
-      pageList: []
+      pageList: [],
+      counter: 0
     }
   },
   methods: {
@@ -23,6 +24,7 @@ export default {
     // nowPage = 1 10 11 20 21 100 101
     // startPage = 1 1 11 11 21 91 101
     startPage(){
+      // console.log(this.nowPage);
       return Math.ceil(this.nowPage / 10) * 10 - 9;
     },
     // nowPage = 1 10 11 20 21 100 101
@@ -31,7 +33,7 @@ export default {
       return this.startPage() + 9 > this.lastPage() ? this.lastPage() : this.startPage() + 9;
     },
     onPageChange(page){
-      this.$emit('onPageChange', page)
+      this.$emit('onPageChange', page);
     }
   },
   watch: {
@@ -42,9 +44,44 @@ export default {
       for (let i = this.startPage(); i <= this.endPage(); i++) {
         this.pageList.push(i);
       }
+    },
+    nowPage: function(){
+      let tmp = document.getElementById("pagenation");
+      for(let i of tmp.children){
+        console.log(i);
+        if(i.innerText == this.nowPage){
+          i.style.backgroundColor = "green";
+        }else{
+          i.style.backgroundColor = "transparent";
+        }
+      }
+      console.log(tmp);
     }
+  },
+  mounted() {
+    // document.getElementById("pagenation").children[0].style.backgroundColor = "red";
   }
 }
+
 </script>
 <style scoped>
+  #pagination {
+    display: inline-block;
+  }
+
+  .btn{
+    color: black;
+    background-color: transparent;
+    border: none;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+    margin-top: 5rem;
+    margin-bottom: 3rem;
+  }
+  .btn:active {
+    border-radius: 5px;
+    /* background-color: #4CAF50; */
+    border: 1.5px solid #4CAF50;
+  }
 </style>
