@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container" :style="{'background-image': 'url(' + product.detailImg +')'}">
     <div class="row">
       <div class="col-sm-12 col-md-6 col-lg-6 pdpLeftPart">
         <h1 style="text-align: left; font-weight: bold">{{ product.pName }}</h1>
@@ -9,7 +9,7 @@
         <p style="text-align: left">*Fields Required.</p>
       </div>
       <div class="col-md-5 col-lg-5 col-sm-12">
-        <img class="prodImage" :src="product.detailImg" :alt="product.pName" />
+        <!-- <img class="prodImage" :alt="product.pName" /> -->
       </div>
     </div>
     <div class="row" v-for="(value, ingredientName, idx) in ingredients" :key="idx">
@@ -47,15 +47,20 @@
         </div>
       </div>
     </div>
+    <shopping-cart></shopping-cart>
   </div>
 </template>
 <script>
 import readJson from "../services/JsonService";
 // import jQuery from "jquery";
 // const $ = jQuery;
+import ShoppingCart from "./ShoppingCart.vue"
 
 export default {
   name: "ShowDetails",
+  components: {
+    ShoppingCart
+  },
   data() {
     return {
       products: [],
@@ -64,6 +69,7 @@ export default {
       ingredients: [],
       editFlag: false,
       selected: '',
+      selectItems: new Map()
     };
   },
   methods: {
@@ -74,7 +80,9 @@ export default {
       });
     },
     showEditBtn(event, item){
-      event.currentTarget.style = "border: 3px solid #00491e; height: 100%"
+      this.selectItems.set(item.iid, {...item, amount:1});
+      this.$emit('selectItems', this.selectItems);
+      event.currentTarget.style = "border: 3px solid #00491e; height: 100%";
       if (item.edit || item.editPrice){
         this.selected = item
       }
@@ -135,6 +143,10 @@ export default {
 };
 </script>
 <style scoped>
+.container {
+  background-repeat: no-repeat;
+}
+
 .pdpLeftPart {
   padding: 60px 0 15px 0;
 }
