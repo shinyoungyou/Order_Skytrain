@@ -2,7 +2,6 @@
     <section>
         <article id="incart">
             <aside>Ingredients</aside>
-            <aside></aside>
             <table v-if="cartFlag">
                 <tbody>
                     <tr v-for="item in selectItems" :key="item[1].iid">
@@ -104,7 +103,11 @@ export default {
         padding: 1%;
         background-color: #3d8a39;
         color: whitesmoke;
-        text-align: right;
+        font-weight: 600;
+        text-transform: uppercase;
+        display: flex;
+        justify-content: right;
+        align-items: center;
     }
     section > aside {
         width: 100%;
