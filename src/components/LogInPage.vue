@@ -1,27 +1,10 @@
 <template>
-  <main class="form-signin w-100 m-auto">
-    <form style="width:300px">
-      <h1 class="navbar-brand mb-4" style="font-weight: bold; font-size: 40px;"><span style="color: #f2b840">Order</span><span style="color: #3d8a39">SkyTrain</span></h1>
-      <h1 class="h3 mb-3 fw-normal">Please Login</h1>
-      <div class="form-floating">
-        <input v-model="uname" type="text" class="form-control" id="floatingInput">
-        <label for="floatingInput">Username</label>
-      </div>
-      <div class="form-floating">
-        <input v-model="pass" type="password" class="form-control" id="floatingPassword">
-        <label for="floatingPassword">Password</label>
-      </div>
-      <div class="checkbox mb-3">
-        <label>
-          <input v-on:click="isChecked" type="checkbox" value="remember-me" id="remember"> Remember me
-        </label>
-      </div>
-      <button v-on:click="login" class="w-100 btn btn-lg btn-success" type="submit">
-        Login
-      </button>
-      <p class="mt-5 mb-3 text-muted">© 2017-2022</p>
-    </form>
-  </main>
+  <div class="hello">
+    <input v-model="uname" placeholder="Username" />
+    <input v-model="pass" placeholder="Password" type="password" />
+    <input v-on:click="isChecked" type="checkbox" id="remember" />Remember me
+    <button v-on:click="login">Login</button>
+  </div>
 </template>
 
 <script>
@@ -31,11 +14,11 @@ import cookieClass from "../classes/cookieClass"
 
 export default {
   name: "LoginPage",
+  props: ["loginFlag"],
   data() {
     return {
       uname: "",
       pass: "",
-      logFlag: false
     };
   },
   methods: {
@@ -46,8 +29,7 @@ export default {
           res.data.forEach((user) => {
             if (user.username == this.uname && user.password == this.pass) {
               let loggedUser = new userClass(user.cid, user.firstName, user.lastName, user.username, user.email, user.address, user.cardNum, user.expDate)
-              this.logFlag = true
-              this.$emit("handleLogFlag", this.logFlag)
+            
               sessionStorage.setItem("loggedUser", JSON.stringify(loggedUser.toObject()));
 
               if(document.querySelector("#remember").checked){
@@ -56,7 +38,7 @@ export default {
               }
               alert(`Welcome, ${loggedUser.toObject().fullname}`)
 
-              this.$router.push("/menu");
+              this.$router.push("/sandwiches");
               // this.loginFlag = true;
             }
           })
@@ -75,18 +57,14 @@ export default {
   mounted() {
     let loggedUser = JSON.parse(sessionStorage.getItem("loggedUser"));
     if (loggedUser){
-      this.$router.push("/menu");
-      this.logFlag = true
-      this.$emit("handleLogFlag", this.logFlag)
-      console.log(this.logFlag);
-
+      this.$router.push("/sandwiches");
     }
     console.log(loggedUser);
 
     const cookieObj = new cookieClass();
     if(cookieObj.getCookie('uname')!=''){
-      this.uname = cookieObj.getCookie('uname');
-    }
+    this.uname = cookieObj.getCookie('uname');
+}
   },
 };
 </script>
@@ -106,11 +84,5 @@ li {
 }
 a {
   color: #42b983;
-}
-main {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
 }
 </style>
