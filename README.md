@@ -1,6 +1,8 @@
 Austyn Part
 1. Building sign in system: use json file of user.
 2. Rendering the product list on the screen
+3. Implement product detail page, select and edit ingredients fetures
+4. Implement pagination
 
 Shotaro Part
 1. Search for products

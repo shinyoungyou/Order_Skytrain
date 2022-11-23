@@ -12,36 +12,38 @@
         <!-- <img class="prodImage" :alt="product.pName" /> -->
       </div>
     </div>
-    <div class="row" v-for="(value, ingredientName, idx) in ingredients" :key="idx">
-      <div class="col-sm-12 col-md-6 col-lg-6 pdpLeftPart">
-        <h2 style="text-align: left; font-weight: bold">{{ingredientName}}</h2>
-        <div class="row g-3">
-          <div class="col-sm-12 col-md-6 col-lg-4" v-for="item in value" :key="item.iid">
-            <!-- item card -->
-            <div class="card shadow-sm" @click="showEditBtn($event, item)" v-show="!editFlag || !(selected.iid==item.iid)" style="width: 100%; height: 100%">
-              <img :src="item.img" :alt="item.iName" class="card-img-top" />
-              <div class="card-body">
-                <h5 class="card-title">{{item.iName}}</h5>
-                <p class="card-text">
-                  <span v-show="item.price">${{ item.price }} · </span>{{ item.cals }}Cals
-                </p>
-                <button v-show="selected.iid==item.iid" @click="editItem(item)" class="btn btn-outline-success">Edit</button>
+    <div>
+      <div class="row" v-for="(value, ingredientName, idx) in ingredients" :key="idx">
+        <div class="col-sm-12 col-md-6 col-lg-6 pdpLeftPart">
+          <h2 style="text-align: left; font-weight: bold">{{ingredientName}}</h2>
+          <div class="row g-3">
+            <div class="col-sm-12 col-md-6 col-lg-4" v-for="item in value" :key="item.iid">
+              <!-- item card -->
+              <div class="card shadow-sm" @click="showEditBtn($event, item)" v-show="(!editFlag || !(selected.iid==item.iid)) || !editBtnFlag" style="width: 100%; height: 100%">
+                <img :src="item.img" :alt="item.iName" class="card-img-top" />
+                <div class="card-body">
+                  <h5 class="card-title">{{item.iName}}</h5>
+                  <p class="card-text">
+                    <span v-show="item.price">${{ item.price }} · </span>{{ item.cals }}Cals
+                  </p>
+                  <button v-show="(selected.iid==item.iid)&&editBtnFlag" @click="editItem()" class="btn btn-outline-success">Edit</button>
+                </div>
               </div>
-            </div>
-            <!-- edit item card -->
-            <div class="card shadow-sm" style="width: 100%; height: 100%" v-show="selected.iid==item.iid&& editFlag">
-              <nav v-show="!item.editPrice">
-                <ul>
-                  <li v-for="(option, idx) in item.edit" :key="idx">{{option}}</li>
-                </ul>
-                <button @click="doneEdit(item)" class="btn btn-outline-success">Done</button>
-              </nav>  
-              <nav v-show="item.editPrice">
-                <ul>
-                  <li v-for="(option, idx) in item.editPrice" :key="idx">{{option.eName}} +${{option.ePrice}}</li>
-                </ul>
-                <button @click="doneEdit(item)" class="btn btn-outline-success">Done</button>
-              </nav>
+              <!-- edit item card -->
+              <div class="card shadow-sm editItemCard" style="width: 100%; height: 100%" v-show="(selected.iid==item.iid)&& editFlag">
+                <nav v-show="!item.editPrice">
+                  <ul>
+                    <li @click="handleOption($event, option)" class="btn btn-outline-success" v-for="(option, idx) in item.edit" :key="idx">{{option}}</li>
+                  </ul>
+                  <button @click="doneEdit(item)" class="btn btn-outline-success">Done</button>
+                </nav>  
+                <nav v-show="item.editPrice">
+                  <ul>
+                    <li @click="handleOption($event, option)" class="btn btn-outline-success" v-for="(option, idx) in item.editPrice" :key="idx">{{option.eName}} +${{option.ePrice}}</li>
+                  </ul>
+                  <button @click="doneEdit(item)" class="btn btn-outline-success">Done</button>
+                </nav>
+              </div>
             </div>
           </div>
         </div>
@@ -67,33 +69,61 @@ export default {
       product: {},
       id: 0,
       ingredients: [],
+      editBtnFlag: false,
       editFlag: false,
       selected: '',
+<<<<<<< HEAD
       selectItems: new Map()
+=======
+      selectedOption: '',
+      activeIndex: 0
+>>>>>>> 67d9d4056c74ef8a42521cadcccdf8c4cd0a0c15
     };
   },
   methods: {
     loadIngredients() {
       readJson.getIngredientsJson().then((res) => {
         this.ingredients = res.data;
-        console.log(this.ingredients);
       });
     },
     showEditBtn(event, item){
+<<<<<<< HEAD
       this.selectItems.set(item.iid, {...item, amount:1});
       console.log(this.selectItems)
       this.$emit('selectItems', this.selectItems);
       event.currentTarget.style = "border: 3px solid #00491e; height: 100%";
+=======
+      event.currentTarget.style = "border: 3px solid #00491e; height: 100%;"
+      // if(this.selected.iid == item.iid){
+      //    event.currentTarget.style = "height: 100%;"
+      // }
+      if(this.selected.iid != item.iid){
+        this.editFlag = false
+      }
+>>>>>>> 67d9d4056c74ef8a42521cadcccdf8c4cd0a0c15
       if (item.edit || item.editPrice){
         this.selected = item
+        this.editBtnFlag = true
       }
     },
     editItem(){
+      this.editBtnFlag = false
       this.editFlag = true
+    },
+    handleOption(event, option){
+      console.log(option);
+      document.querySelector(".editItemCard li").style.backgroundColor = "white"
+      document.querySelector(".editItemCard li").style.color = "#198754"
+      console.log(document.querySelector(".editItemCard li").style);
+      event.currentTarget.style = "background-color: #198754; color: white;"
+      if(this.selectedOption == option){
+        event.currentTarget.style= "color: #198754; background-color: white;"
+      }
+      this.selectedOption = option
     },
     doneEdit(){
       this.editFlag = false
-    }
+    },
   },
   mounted() {
     this.id = this.$route.params.id;
@@ -158,4 +188,24 @@ export default {
 .card.shadow-sm {
   transition: 0.4s;
 }
+.editItemCard{
+  border: 3px solid #00491e; 
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.editItemCard ul{
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.4vh;
+}
+.editItemCard li {
+  transition: 0.4s;
+}
+.black{
+  background-color: black;
+
+}
+
 </style>

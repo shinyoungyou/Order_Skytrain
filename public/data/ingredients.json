@@ -14,15 +14,15 @@
 
   ],
   "protein": [
-    { "iid": 301, "iName": "Crispy Chicken", "cals": "115", "edit": [{ "eName": "Regular", "ePrice": "0.00" }, { "eName": "Double", "ePrice": "4.00" }],"img": "https://www.subway.com/ns/images/Menu/CAN/ENG/1607_CrispyChickenCutlet_6in_Desktop.png" },
-    { "iid": 302, "iName": "Deli-Style Turkey", "cals": "37", "edit": [{ "eName": "Regular", "ePrice": "0.00" }, { "eName": "Double", "ePrice": "4.00" }],"img": "https://www.subway.com/ns/images/Menu/CAN/ENG/J_DeliStyleTurkey_12in_Meats_Desktop.png" },
-    { "iid": 303, "iName": "Deli-Style Ham", "cals": "56", "edit": [{ "eName": "Regular", "ePrice": "0.00" }, { "eName": "Double", "ePrice": "3.99" }],"img": "https://www.subway.com/ns/images/Menu/CAN/ENG/J_DeliStyleTurkey_12in_Meats_Desktop.png" },
-    { "iid": 304, "iName": "Bacon", "cals": "24", "edit": [{ "eName": "Regular", "ePrice": "0.00" }, { "eName": "Double", "ePrice": "3.99" }],"img": "https://www.subway.com/ns/images/Menu/CAN/ENG/1451_Bacon_SKin_Desktop.png" }
+    { "iid": 301, "iName": "Crispy Chicken", "cals": "115", "editPrice": [{ "eName": "Regular", "ePrice": "0.00" }, { "eName": "Double", "ePrice": "4.00" }],"img": "https://www.subway.com/ns/images/Menu/CAN/ENG/1607_CrispyChickenCutlet_6in_Desktop.png" },
+    { "iid": 302, "iName": "Deli-Style Turkey", "cals": "37", "editPrice": [{ "eName": "Regular", "ePrice": "0.00" }, { "eName": "Double", "ePrice": "4.00" }],"img": "https://www.subway.com/ns/images/Menu/CAN/ENG/J_DeliStyleTurkey_12in_Meats_Desktop.png" },
+    { "iid": 303, "iName": "Deli-Style Ham", "cals": "56", "editPrice": [{ "eName": "Regular", "ePrice": "0.00" }, { "eName": "Double", "ePrice": "3.99" }],"img": "https://www.subway.com/ns/images/Menu/CAN/ENG/J_DeliStyleTurkey_12in_Meats_Desktop.png" },
+    { "iid": 304, "iName": "Bacon", "cals": "24", "editPrice": [{ "eName": "Regular", "ePrice": "0.00" }, { "eName": "Double", "ePrice": "3.99" }],"img": "https://www.subway.com/ns/images/Menu/CAN/ENG/1451_Bacon_SKin_Desktop.png" }
   ],
   "cheese": [
-    { "iid": 401, "iName": "Processed Cheddar", "cals": "81", "edit": [{ "eName": "Regular", "ePrice": "0.00" }, { "eName": "Extra Cheese", "ePrice": "1.99" }],"img": "https://www.subway.com/ns/images/Menu/CAN/ENG/106_WhiteProcessedCheddar_SKin_Desktop.png" },
-    { "iid": 402, "iName": "Shredded Monterey Cheddar", "cals": "113", "edit": [{ "eName": "Regular", "ePrice": "0.00" }, { "eName": "Extra Cheese", "ePrice": "1.99" }],"img": "https://www.subway.com/ns/images/Menu/CAN/ENG/295_MontereyCheddar_SKin_Desktop.png" },
-    { "iid": 403, "iName": "Canadian Cheddar", "cals": "88", "edit": [{ "eName": "Regular", "ePrice": "0.00" }, { "eName": "Extra Cheese", "ePrice": "1.99" }],"img": "https://www.subway.com/ns/images/Menu/CAN/ENG/193_NaturalCheddar_6in_Desktop.png" }
+    { "iid": 401, "iName": "Processed Cheddar", "cals": "81", "editPrice": [{ "eName": "Regular", "ePrice": "0.00" }, { "eName": "Extra Cheese", "ePrice": "1.99" }],"img": "https://www.subway.com/ns/images/Menu/CAN/ENG/106_WhiteProcessedCheddar_SKin_Desktop.png" },
+    { "iid": 402, "iName": "Shredded Monterey Cheddar", "cals": "113", "editPrice": [{ "eName": "Regular", "ePrice": "0.00" }, { "eName": "Extra Cheese", "ePrice": "1.99" }],"img": "https://www.subway.com/ns/images/Menu/CAN/ENG/295_MontereyCheddar_SKin_Desktop.png" },
+    { "iid": 403, "iName": "Canadian Cheddar", "cals": "88", "editPrice": [{ "eName": "Regular", "ePrice": "0.00" }, { "eName": "Extra Cheese", "ePrice": "1.99" }],"img": "https://www.subway.com/ns/images/Menu/CAN/ENG/193_NaturalCheddar_6in_Desktop.png" }
   ],
   "veggies": [
     { "iid": 501, "iName": "Lettuce", "cals": "5", "edit": ["Less", "Regular", "More"], "img": "https://www.subway.com/ns/images/Menu/CAN/ENG/23_Lettuce_6in_Desktop.png" },

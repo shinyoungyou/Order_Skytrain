@@ -11,7 +11,7 @@
             </tbody>
             <tfoot>
                 <tr>
-                    <td><button @click="flagCtrl">-</button>{{total}}<button>+</button></td>
+                    <td><button @click="addCart">-</button><button>+</button></td>
                     <td>{{total}}</td>
                 </tr>
             </tfoot>
@@ -47,9 +47,10 @@ export default {
     data(){
         return {
             products: new Map(),
-            shopFlag: false,
+            shopFlag: true,
             priceFlag: false,
-            selProd: null
+            selProd: null,
+            total: 0
         }
     },
     methods: {
