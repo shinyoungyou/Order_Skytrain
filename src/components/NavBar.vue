@@ -49,7 +49,8 @@
               class="form-control me-sm-2"
               type="text"
               placeholder="Search"
-              v-model="itemSelector"
+              v-model="itemSelector" 
+              
             />
             <router-link
               class="btn btn-outline-success my-2 my-sm-0"
@@ -106,7 +107,11 @@ export default {
       this.loginFlag = logFlag;
     },
     displaySearch() {
-      this.$emit("SearcedItems", this.itemSelector);
+      if(!this.itemSelector.match(/\S/g)){
+          alert("Write something")
+      }else{
+        this.$emit("SearcedItems", this.itemSelector);
+      }
     },
   },
 };
