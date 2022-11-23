@@ -49,4 +49,20 @@ export default {
 }
 </script>
 <style scoped>
+  div {
+    padding: 1%;
+  }
+  button {
+    padding: 0 1%;
+    border: 0;
+    border-radius: 5px;
+    background-color: white;
+    color: #999;
+    font-weight: 600;
+    transition: .4s;
+  }
+  button:hover {
+    background-color: #ddd;
+    color: white;
+  }
 </style>

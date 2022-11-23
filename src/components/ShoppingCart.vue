@@ -14,9 +14,10 @@
                 </tbody>
             </table>
         </article>
-        <aside class="total">
-            <button @click="flagCtrl">-</button>{{total}}<button @click="prodTotal">+</button>
-            {{total}}
+        <aside>
+            <aside>
+                <button @click="flagCtrl"><i class="fa-solid fa-minus"></i></button>{{total}}<button @click="prodTotal"><i class="fa-solid fa-plus"></i></button>
+            </aside>
         </aside>
         <table v-if="!cartFlag" id="cart">
             <thead>
@@ -52,7 +53,7 @@ export default {
             shopFlag: false,
             priceFlag: false,
             selProd: null,
-            asdf: ''
+            total: 0
         }
     },
     methods: {
@@ -65,6 +66,11 @@ export default {
                 console.log(this.selProd);
             }
             this.products.set(this.selProd.iid, this.selProd);
+        },
+        totalPrice(){
+            this.selProd.forEach((products)=>{
+                this.total += products.total();
+            })
         },
         prodTotal(e){
             switch(e.target.textContent){
@@ -89,6 +95,10 @@ export default {
         flex-direction: column;
         overflow-y: scroll;
     }
+    #incart td {
+        padding: 3%;
+        border-bottom: 0.5px solid #eee;
+    }
     #incart aside {
         width: 100%;
         padding: 1%;
@@ -96,21 +106,7 @@ export default {
         color: whitesmoke;
         text-align: right;
     }
-    button {
-        width: 40px;
-        height: 35px;
-        border: 0;
-        border-radius: 5px;
-        background-color: #3d8a39;
-        color: white;
-        font-size: 22pt;
-        display: flex;
-    }
-    #incart td {
-        padding: 3%;
-        border-bottom: 0.5px solid #eee;
-    }
-    .total {
+    section > aside {
         width: 100%;
         padding: 2%;
         border-width: 0 3px;
@@ -118,5 +114,27 @@ export default {
         border-color: #3d8a39;
         display: flex;
         justify-content: right;
+    }
+    aside > aside {
+        width: 120px;
+        height: 40px;
+        border: 1px solid #ddd;
+        border-radius: 10vh;
+        color: #3d8a39;
+        font-weight: 600;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    button {
+        height: 50%;
+        padding: 0 10%;
+        border: 0;
+        background-color: transparent;
+        color: #999;
+        font-size: 14pt;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 </style>
