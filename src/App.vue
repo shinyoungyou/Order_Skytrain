@@ -2,7 +2,7 @@
   <div>
     <nav-bar></nav-bar>
   </div>
-  <router-view />
+  <router-view @selectItems="selected" :selectItems="selectItems"/>
 </template>
 <script>
 import NavBar from "./components/NavBar.vue"
@@ -14,8 +14,14 @@ export default {
   data() {
     return {
       logFlag: false,
+      selectItems: null
     };
   },
+  methods: {
+    selected(selectItems){
+      this.selectItems = selectItems;
+    }
+  }
 };
 </script>
 

@@ -1,12 +1,12 @@
 <template>
-    <section>
+    <section id="cart">
         <table v-if="cartFlag">
             <tbody>
-                <tr v-for="item in selectItems" :key="item.iid">
-                    <td>{{item.iName}}</td>
-                    <td v-if="!cartFlag">{{item.price}}</td>
-                    <td>{{item.cals}}</td>
-                    <td>{{item.amount}}</td>
+                <tr v-for="item in selectItems" :key="item[1].iid">
+                    <td>{{item[1].iName}}</td>
+                    <td>{{item[1].price}}</td>
+                    <td>{{item[1].cals}}</td>
+                    <td>{{item[1].amount}}</td>
                 </tr>
             </tbody>
             <tfoot>
@@ -37,38 +37,48 @@
     </section>
 </template>
 <script>
-import ProductClass from "../classes/productClass.js"
+import ProductClass from "../classes/productClass.js";
 export default {
     name: "ShoppingCart",
     props: [
-        'selectItems'
+        'selectItems',
+        'cartFlag'
     ],
     data(){
         return {
             products: new Map(),
-            shopFlag: false
+            shopFlag: false,
+            priceFlag: false,
+            selProd: null
         }
     },
     methods: {
         addCart(){
-            let selProd = null;
             if(this.products.has(this.selectItems.iid)){
-                selProd = this.products.get(this.selectItems.iid);
-                selProd.amount = selProd.amount + 1;
+                this.selProd = this.products.get(this.selectItems.iid);
+                this.selProd.amount = this.selProd.amount + 1;
             }else{
-                selProd = new ProductClass(this.selectItems.iid, this.selectItems.iName, this.selectItems.cals, this.selectItems.price);
+                this.selProd = new ProductClass(this.selectItems.iid, this.selectItems.iName, this.selectItems.cals, this.selectItems.price);
             }
-            this.products.set(selProd.iid, selProd);
+            this.products.set(this.selProd.iid, this.selProd);
         },
-        flagCtrl(){
-            return this.cartFlag = true;
+        prodTotal(){
+            this.selProd.price += this.selProd.price;
         }
     },
     mounted(){
-        
     }
 }
 </script>
 <style scoped>
-
+    #cart table:first-child {
+        width: 100%;
+        height: 4vh;
+        background-color: white;
+    }
+    #cart table:last-child {
+        width: 70%;
+        border-width: 1px 0;
+        border-color: #eee;
+    }
 </style>

@@ -47,7 +47,7 @@
         </div>
       </div>
     </div>
-    <shopping-cart></shopping-cart>
+    <shopping-cart :cartFlag="true"></shopping-cart>
   </div>
 </template>
 <script>
@@ -81,6 +81,7 @@ export default {
     },
     showEditBtn(event, item){
       this.selectItems.set(item.iid, {...item, amount:1});
+      console.log(this.selectItems)
       this.$emit('selectItems', this.selectItems);
       event.currentTarget.style = "border: 3px solid #00491e; height: 100%";
       if (item.edit || item.editPrice){
@@ -143,10 +144,6 @@ export default {
 };
 </script>
 <style scoped>
-.container {
-  background-repeat: no-repeat;
-}
-
 .pdpLeftPart {
   padding: 60px 0 15px 0;
 }
