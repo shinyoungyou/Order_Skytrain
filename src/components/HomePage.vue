@@ -43,8 +43,13 @@ import { Swiper, SwiperSlide } from "swiper/vue";
 import { Navigation } from "swiper";
 
 // Import Swiper styles
-import "swiper/css";
-import "swiper/css/navigation";
+// import "swiper/css";
+// import "swiper/css/navigation";
+
+import "swiper/swiper.min.css";
+import "swiper/swiper-bundle.min.css";
+import "swiper/swiper-bundle.css";
+
 
 export default {
   name: "HomeSlideCompo",

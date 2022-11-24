@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import LoginPage from "../components/LogInPage.vue";
 import LogoutPage from "../components/LogoutPage.vue"
-// import HomePage from "../components/HomePage.vue"
+import HomePage from "../components/HomePage.vue"
 import MenuPage from "../components/MenuPage.vue"
 import SandwichPage from '../components/SandwichPage.vue'
 import SaladPage from '../components/SaladPage.vue'
@@ -21,12 +21,12 @@ const routes = [
     name: 'logout-page',
     component: LogoutPage,
   },
-  // {
-  //   path: '/home',
-  //   name: 'home-page',
-  //   component: HomePage,
+  {
+    path: '/home',
+    name: 'home-page',
+    component: HomePage,
     
-  // },
+  },
   {
     path: '/menu',
     name: 'menu-page',
