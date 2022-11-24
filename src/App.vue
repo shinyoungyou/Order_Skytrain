@@ -1,11 +1,12 @@
 <template>
   <div>
-    <nav-bar></nav-bar>
+    <nav-bar :logFlag="logFlag" @SearcedItems="SearcedItems"></nav-bar>
   </div>
-  <router-view />
+  <router-view :loggedUser="loggedUser" @globalLoggedUser="globalLoggedUser" @handleLogFlag="handleLogFlag"  :searcedItems="searcedItems"/>
 </template>
 <script>
-import NavBar from "./components/NavBar.vue"
+import NavBar from "./components/NavBar.vue";
+
 export default {
   name: "App",
   components: {
@@ -14,7 +15,26 @@ export default {
   data() {
     return {
       logFlag: false,
+      searcedItems:"",
+      loggedUser: "" // use it in shopping cart page when getting the cardNum, expDate
     };
+  },
+  methods: {
+    handleLogFlag(logFlag) {
+      this.logFlag = logFlag;
+    },
+    SearcedItems(val){
+      this.searcedItems = val; 
+    },
+    globalLoggedUser(loggedUser){
+      this.loggedUser = loggedUser // use it in shopping cart page when getting the cardNum, expDate
+    }
+  },
+   mounted() {
+    this.loggedUser = JSON.parse(sessionStorage.getItem("loggedUser"));
+    if (this.loggedUser){
+      this.logFlag = true
+    }
   },
 };
 </script>
