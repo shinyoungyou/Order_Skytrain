@@ -7,8 +7,9 @@ Austyn Part
 6. Implement pagination feature in sandwich page
 
 Shotaro Part
+1. Contribute to making json
 1. Implement search for products fetures
-2. Contribute shopping cart
+2. Contribute to shopping cart
 
 Jade Part
 1. Mark up and style shopping cart compoment
