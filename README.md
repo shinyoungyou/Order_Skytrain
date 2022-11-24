@@ -1,21 +1,22 @@
 Austyn Part
-1. Building sign in system: use json file of user.
-2. Rendering the product list on the screen
-3. Implement product detail page, select and edit ingredients fetures
-4. Implement pagination
+1. Data structure of user, product, ingredient json
+2. Building login system
+3. Rendering the product list on the screen
+4. Implement product detail page via router path variables
+5. Implement select and edit ingredients feature in shopping cart
+6. Implement pagination feature in sandwich page
 
 Shotaro Part
-1. Search for products
-2. price range selector
+1. Implement search for products fetures
+2. Contribute shopping cart
 
 Jade Part
-1. Adding products to the shopping cart
-2. calculate the total price of all products in a cart 
+1. Mark up and style shopping cart compoment
+2. Style pagination
 
 Jay Part
-1. privacy policy, cookie accept modal - optional
-2. product list page(category1, category2, category3)
-3. Product detail: a new page.
-4. cart page which display all selected product by user
-5. Sign in page
-6. profile page
+1. Build home page with swiper
+2. Implement to add products to the shopping cart
+3. Implement to calculate the total price of all products in a cart
+4. Logo design
+5. Manipulate pagination with JS
