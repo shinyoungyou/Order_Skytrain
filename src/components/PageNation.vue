@@ -51,8 +51,10 @@ export default {
         console.log(i);
         if(i.innerText == this.nowPage){
           i.style.backgroundColor = "green";
+          i.style.color = "white";
         }else{
           i.style.backgroundColor = "transparent";
+          i.style.color = "black";
         }
       }
       console.log(tmp);
