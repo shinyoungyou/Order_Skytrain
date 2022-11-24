@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import LoginPage from "../components/LogInPage.vue";
 import LogoutPage from "../components/LogoutPage.vue"
-
+// import HomePage from "../components/HomePage.vue"
 import MenuPage from "../components/MenuPage.vue"
 import SandwichPage from '../components/SandwichPage.vue'
 import SaladPage from '../components/SaladPage.vue'
@@ -16,44 +16,43 @@ const routes = [
     alias: '/login',
     name: 'login-page',
     component: LoginPage,
-    props: true
   },{
     path: '/logout',
     name: 'logout-page',
     component: LogoutPage,
-    props: true
-  },{
+  },
+  // {
+  //   path: '/home',
+  //   name: 'home-page',
+  //   component: HomePage,
+    
+  // },
+  {
     path: '/menu',
     name: 'menu-page',
     component: MenuPage,
-    props: true
   },{
     path: '/sandwiches',
     name: 'sandwich-page',
     component: SandwichPage,
-    props: true
   },{
     path: '/salads',
     name: 'salad-page',
     component: SaladPage,
-    props: true
   },{
     path: '/breakfast',
     name: 'breakfast-page',
     component: BreakfastPage,
-    props: true
   },{
     // search item
     path: '/Searchitem',
     name: 'search-item',
     component: SearchItem,
-    props: true
   },{
     // show details of product
     path: '/product/:id',
     name: 'show-details',
     component: ShowDetails,
-    props: true
   },{
     path: '/:catchAll(.*)',
     name: 'NotFound',
