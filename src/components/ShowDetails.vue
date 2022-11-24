@@ -17,7 +17,7 @@
         <div class="col-sm-12 col-md-6 col-lg-6 pdpLeftPart">
           <h2 style="text-align: left; font-weight: bold">{{ingredientName}}</h2>
           <div class="row g-3">
-            <div class="col-sm-12 col-md-6 col-lg-4" v-for="item in value" :key="item.iid">
+            <div @click="getData" class="col-sm-12 col-md-6 col-lg-4" v-for="item in value" :key="item.iid">
               <!-- item card -->
               <div class="card shadow-sm" @click="showEditBtn($event, item)" v-show="(!editFlag || !(selected.iid==item.iid)) || !editBtnFlag" style="width: 100%; height: 100%">
                 <img :src="item.img" :alt="item.iName" class="card-img-top" />
@@ -50,6 +50,12 @@
       </div>
     </div>
   </div>
+  <section id="cart">
+      <div class="list" v-for="(item, idx) in shoppingCart" :key="idx">
+        <span>{{item}}</span>
+      </div>
+  </section>
+  <span id="total">Total : ${{total}}</span>
 </template>
 <script>
 import readJson from "../services/JsonService";
@@ -68,7 +74,10 @@ export default {
       editFlag: false,
       selected: '',
       selectedOption: '',
-      activeIndex: 0
+      activeIndex: 0,
+      shoppingCart: new Set(),
+      flag:false,
+      total:0,
     };
   },
   methods: {
@@ -95,7 +104,32 @@ export default {
       this.editFlag = true
     },
     handleOption(event, option){
-      console.log(option);
+      console.log(event.currentTarget.innerText);
+      const cartEl = document.getElementById("cart");
+
+      for(let i of cartEl.children){
+        if(i.children[0].innerText == event.currentTarget.parentElement.parentElement.parentElement.parentElement.children[0].children[1].children[0].innerText){
+          let spanEl = document.createElement("span");
+          if(event.currentTarget.innerText.indexOf("+") != -1){
+            let items = event.currentTarget.innerText.split("+");
+            console.log(items)
+            spanEl.innerText = items[0];
+
+            let spanEl2 = document.createElement("span");
+            spanEl2.innerText = items[1];
+
+            i.appendChild(spanEl);
+            i.appendChild(spanEl2);
+
+            this.total += Number(items[1].split("$")[1])
+          }else{
+            spanEl.innerText = event.currentTarget.innerText;
+            i.appendChild(spanEl);
+          }
+        }
+      }
+
+      console.log(cartEl);
       document.querySelector(".editItemCard li").style.backgroundColor = "white"
       document.querySelector(".editItemCard li").style.color = "#198754"
       console.log(document.querySelector(".editItemCard li").style);
@@ -103,11 +137,27 @@ export default {
       if(this.selectedOption == option){
         event.currentTarget.style= "color: #198754; background-color: white;"
       }
-      this.selectedOption = option
+      this.selectedOption = option;
     },
     doneEdit(){
       this.editFlag = false
     },
+    getData(e){
+      this.shoppingCart.add(e.currentTarget.children[0].children[1].children[0].innerText);
+
+      if(!this.flag){
+        this.flag = true;
+        const spanEl = document.createElement("span");
+        spanEl.innerText = e.currentTarget.children[0].children[1].children[1].children[0].innerText.split(" ")[0];
+        
+        setTimeout(()=>{
+          const cartEl = document.getElementById("cart").children[0];
+          cartEl.children[0].appendChild(spanEl)
+          this.total += Number(spanEl.innerText.split("$")[1]);
+          }, 100);
+      }
+
+    }
   },
   mounted() {
     this.id = this.$route.params.id;
@@ -191,5 +241,56 @@ export default {
   background-color: black;
 
 }
+section{
+  position: fixed;
+  top: 10%;
+  right: 10%;
+}
+#total{
+  position: fixed;
+  bottom: 10px;
+  right: 12%;
+}
+
+#cart {
+  width: 20%;
+  position: fixed;
+  right: 20vh;
+  z-index: 2;
+  border: 5px solid #00491e;
+  color: black;
+  background-color: white;
+  height: 70vh;
+  top: 20vh;
+  border-radius: 20px;
+  padding: 2rem;
+}
+
+section span,
+#total{
+  font-size: 20px;
+}
+
+section span{
+  text-align: left;
+  display: flex;
+  column-gap: 4vh;
+}
+
+.list {
+  border-bottom: 3px solid green;
+  /* display: flex;
+  column-gap: 4vh; */
+  text-align: left;
+}
+
+.list span:first-child {
+  width: 100%;
+}
+
+.container {
+  position: relative;
+}
+
 
 </style>
