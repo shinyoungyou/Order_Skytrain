@@ -81,8 +81,7 @@
             </div>
           </li>
           <li class="nav-item">
-            <router-link active-class="active" class="nav-link" to="/Cart"
-              >Cart</router-link
+            <router-link active-class="active" class="nav-link" to="/Cart">Cart</router-link
             >
           </li>
         </ul>

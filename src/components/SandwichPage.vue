@@ -5,7 +5,7 @@
       NOTICE TO OUR VALUED GUESTS: LETTUCE SUPPLY: We are experiencing lettuce shortages due to agricultural and weather-related events. Subway is instituting a temporary lettuce portion reduction in our sandwich builds to manage the shortage. Thank you for your patience.
     </p>
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3">
-        <div class="col" v-for="sandwich in sandwiches" :key="sandwich.pid">
+        <div class="col" v-for="sandwich in sandwiches" :key="sandwich.pid" @click="buy(sandwich.pid)">
           <div class="card shadow-sm" style="width: 100%; height: 100%;">
             <img :src="sandwich.listImg" class="card-img-top" :alt="sandwich.pName" />
             <div class="card-body">
@@ -69,6 +69,9 @@ export default {
     onPageChange(page){
       this.page = page
     },
+    // buy(idx) {
+    //   this.$emit("buy", idx);
+    // },
   },
   watch: {
     page: function(){

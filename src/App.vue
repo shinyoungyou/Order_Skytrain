@@ -2,11 +2,10 @@
   <div>
     <nav-bar :logFlag="logFlag" @SearcedItems="SearcedItems"></nav-bar>
   </div>
-  <router-view @handleLogFlag="handleLogFlag"  :searcedItems="searcedItems"/>
+  <router-view @handleLogFlag="handleLogFlag" :searcedItems="searcedItems" />
 </template>
 <script>
 import NavBar from "./components/NavBar.vue";
-
 export default {
   name: "App",
   components: {
@@ -15,24 +14,28 @@ export default {
   data() {
     return {
       logFlag: false,
-      searcedItems:"",
+      searcedItems: "",
+      selectItems: null,
     };
   },
   methods: {
     handleLogFlag(logFlag) {
       this.logFlag = logFlag;
     },
-    SearcedItems(val){
-      this.searcedItems = val; 
-    }
+    SearcedItems(val) {
+      this.searcedItems = val;
+    },
+    selected(selectItems) {
+      this.selectItems = selectItems;
+      console.log(this.selectItems);
+    },
   },
-   mounted() {
+  mounted() {
     let loggedUser = JSON.parse(sessionStorage.getItem("loggedUser"));
-    if (loggedUser){
-      this.logFlag = true
-      this.$emit("handleLogFlag", this.logFlag)
+    if (loggedUser) {
+      this.logFlag = true;
+      this.$emit("handleLogFlag", this.logFlag);
       console.log(this.logFlag);
-
     }
   },
 };
