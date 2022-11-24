@@ -5,10 +5,7 @@
     style="background-color: #fff; border-bottom: 1px solid #ececec"
   >
     <div class="container">
-      <router-link class="navbar-brand" to="/menu" style="font-weight: bold"
-        ><span style="color: #f2b840">Order</span
-        ><span style="color: #3d8a39">SkyTrain</span></router-link
-      >
+      <router-link class="navbar-brand" style="font-weight: bold" to="/home"><img src="../assets/img/logo.png" style="width: 300px"/></router-link>
       <button
         class="navbar-toggler d-lg-none"
         type="button"
@@ -24,9 +21,14 @@
             <router-link
               active-class="active"
               class="nav-link"
-              to="/menu"
+              to="/home"
               aria-current="page"
-              >Menu<span class="visually-hidden">(current)</span></router-link
+              >Home<span class="visually-hidden">(current)</span></router-link
+            >
+          </li>
+          <li class="nav-item">
+            <router-link active-class="active" class="nav-link" to="/menu"
+              >Menu</router-link
             >
           </li>
           <li class="nav-item">
@@ -79,11 +81,6 @@
               >
             </div>
           </li>
-          <li class="nav-item">
-            <router-link active-class="active" class="nav-link" to="/Cart"
-              >Cart</router-link
-            >
-          </li>
         </ul>
       </div>
     </div>
@@ -120,4 +117,8 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
+
+
+
+
 </style>
